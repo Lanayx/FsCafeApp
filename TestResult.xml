@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="2" engine-version="3.6.1.0" clr-version="4.0.30319.42000" start-time="2017-03-10 20:24:38Z" end-time="2017-03-10 20:24:39Z" duration="0.954946">
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="2" engine-version="3.6.1.0" clr-version="4.0.30319.42000" start-time="2017-03-10 20:35:54Z" end-time="2017-03-10 20:35:55Z" duration="0.997802">
   <command-line><![CDATA["packages/NUnit.ConsoleRunner/tools/nunit3-console.exe" "--noheader" "D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" ]]></command-line>
-  <test-suite type="Assembly" id="0-1002" name="CafeApp.Core.Tests.dll" fullname="D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 20:24:39Z" end-time="2017-03-10 20:24:39Z" duration="0.095072" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+  <test-suite type="Assembly" id="0-1002" name="CafeApp.Core.Tests.dll" fullname="D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 20:35:55Z" end-time="2017-03-10 20:35:55Z" duration="0.097947" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
     <environment framework-version="3.6.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.15048.0" platform="Win32NT" cwd="D:\Work\Training\CafeApp" machine-name="ODIN" user="odind" user-domain="ODIN" culture="ru-BY" uiculture="ru-RU" os-architecture="x64" />
     <settings>
       <setting name="DisposeRunners" value="True" />
       <setting name="WorkDirectory" value="D:\Work\Training\CafeApp" />
       <setting name="ImageRuntimeVersion" value="4.0.30319" />
-      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.6.2" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5.2" />
       <setting name="ImageRequiresX86" value="False" />
       <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
       <setting name="NumberOfTestWorkers" value="8" />
     </settings>
     <properties>
-      <property name="_PID" value="15284" />
+      <property name="_PID" value="13736" />
       <property name="_APPDOMAIN" value="domain-" />
     </properties>
-    <test-suite type="TestFixture" id="0-1000" name="OpenTabTests" fullname="OpenTabTests" classname="OpenTabTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 20:24:39Z" end-time="2017-03-10 20:24:39Z" duration="0.069797" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
-      <test-case id="0-1001" name="Can Open a new Tab" fullname="OpenTabTests.Can Open a new Tab" methodname="Can Open a new Tab" classname="OpenTabTests" runstate="Runnable" seed="547936268" result="Passed" start-time="2017-03-10 20:24:39Z" end-time="2017-03-10 20:24:39Z" duration="0.057021" asserts="2" />
+    <test-suite type="TestFixture" id="0-1000" name="OpenTabTests" fullname="OpenTabTests" classname="OpenTabTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 20:35:55Z" end-time="2017-03-10 20:35:55Z" duration="0.072889" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+      <test-case id="0-1001" name="Can Open a new Tab" fullname="OpenTabTests.Can Open a new Tab" methodname="Can Open a new Tab" classname="OpenTabTests" runstate="Runnable" seed="762423913" result="Passed" start-time="2017-03-10 20:35:55Z" end-time="2017-03-10 20:35:55Z" duration="0.059698" asserts="2" />
     </test-suite>
   </test-suite>
 </test-run>
