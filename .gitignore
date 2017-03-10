@@ -1,1 +1,6 @@
 packages/
+bin/
+obj/
+build/
+tests/
+.fake/
