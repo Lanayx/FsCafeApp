@@ -1,6 +1,8 @@
 # CafeApp/.travis.yml
 language: csharp
+before_install:
+  - chmod +x build.sh
 script:
   - ./build.sh RunUnitTests
 mono:
- - latest
+  - latest
