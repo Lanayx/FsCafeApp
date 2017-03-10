@@ -1,6 +1,8 @@
 source https://www.nuget.org/api/v2
 nuget FAKE
-nuget NUnit
+nuget FSharp.Core
+nuget FsUnit
+nuget NUnit 3.6.0
 nuget NUnit.Console
 nuget NUnit.Runners
 nuget System.ValueTuple 4.3.0 framework: >= net452
