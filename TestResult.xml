@@ -1,29 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="1" engine-version="3.6.1.0" clr-version="4.0.30319.42000" start-time="2017-03-10 08:26:35Z" end-time="2017-03-10 08:26:36Z" duration="0.902232">
+<test-run id="2" testcasecount="0" result="Failed" label="Invalid" total="0" passed="0" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.6.1.0" clr-version="4.0.30319.42000" start-time="2017-03-10 09:30:27Z" end-time="2017-03-10 09:30:28Z" duration="0.488285">
   <command-line><![CDATA["packages/NUnit.ConsoleRunner/tools/nunit3-console.exe" "--noheader" "D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" ]]></command-line>
-  <test-suite type="Assembly" id="0-1002" name="CafeApp.Core.Tests.dll" fullname="D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 08:26:36Z" end-time="2017-03-10 08:26:36Z" duration="0.076306" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
-    <environment framework-version="3.6.1.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.15048.0" platform="Win32NT" cwd="D:\Work\Training\CafeApp" machine-name="ODIN" user="odind" user-domain="ODIN" culture="ru-BY" uiculture="ru-RU" os-architecture="x64" />
-    <settings>
-      <setting name="DisposeRunners" value="True" />
-      <setting name="WorkDirectory" value="D:\Work\Training\CafeApp" />
-      <setting name="ImageRuntimeVersion" value="4.0.30319" />
-      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5.2" />
-      <setting name="ImageRequiresX86" value="False" />
-      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
-      <setting name="NumberOfTestWorkers" value="8" />
-    </settings>
+  <test-suite type="Assembly" id="0-1" name="CafeApp.Core.Tests.dll" fullname="D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" testcasecount="0" runstate="NotRunnable" result="Failed" label="Invalid">
     <properties>
-      <property name="_PID" value="6652" />
-      <property name="_APPDOMAIN" value="domain-" />
+      <property name="_SKIPREASON" value="No suitable tests found in 'D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll'.&#xA;Either assembly contains no tests or proper test driver has not been found." />
     </properties>
-    <test-suite type="TestSuite" id="0-1003" name="CafeApp" fullname="CafeApp" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 08:26:36Z" end-time="2017-03-10 08:26:36Z" duration="0.053639" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
-      <test-suite type="TestSuite" id="0-1004" name="Core" fullname="CafeApp.Core" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 08:26:36Z" end-time="2017-03-10 08:26:36Z" duration="0.047905" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
-        <test-suite type="TestSuite" id="0-1005" name="Testsf" fullname="CafeApp.Core.Testsf" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 08:26:36Z" end-time="2017-03-10 08:26:36Z" duration="0.044105" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
-          <test-suite type="TestFixture" id="0-1000" name="UnitTests" fullname="CafeApp.Core.Testsf.UnitTests" classname="CafeApp.Core.Testsf.UnitTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 08:26:36Z" end-time="2017-03-10 08:26:36Z" duration="0.038625" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="1">
-            <test-case id="0-1001" name="Sample Test" fullname="CafeApp.Core.Testsf.UnitTests.Sample Test" methodname="Sample Test" classname="CafeApp.Core.Testsf.UnitTests" runstate="Runnable" seed="1458652265" result="Passed" start-time="2017-03-10 08:26:36Z" end-time="2017-03-10 08:26:36Z" duration="0.025387" asserts="1" />
-          </test-suite>
-        </test-suite>
-      </test-suite>
-    </test-suite>
+    <reason>
+      <message>No suitable tests found in 'D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll'.
+Either assembly contains no tests or proper test driver has not been found.</message>
+    </reason>
   </test-suite>
 </test-run>
