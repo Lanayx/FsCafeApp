@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
-<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="2" engine-version="3.6.1.0" clr-version="4.0.30319.42000" start-time="2017-03-10 20:35:54Z" end-time="2017-03-10 20:35:55Z" duration="0.997802">
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="3" engine-version="3.6.1.0" clr-version="4.0.30319.42000" start-time="2017-03-11 10:06:05Z" end-time="2017-03-11 10:06:06Z" duration="0.992989">
   <command-line><![CDATA["packages/NUnit.ConsoleRunner/tools/nunit3-console.exe" "--noheader" "D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" ]]></command-line>
-  <test-suite type="Assembly" id="0-1002" name="CafeApp.Core.Tests.dll" fullname="D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 20:35:55Z" end-time="2017-03-10 20:35:55Z" duration="0.097947" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
+  <test-suite type="Assembly" id="0-1003" name="CafeApp.Core.Tests.dll" fullname="D:\Work\Training\CafeApp\tests\CafeApp.Core.Tests.dll" runstate="Runnable" testcasecount="2" result="Passed" start-time="2017-03-11 10:06:06Z" end-time="2017-03-11 10:06:06Z" duration="0.115296" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="3">
     <environment framework-version="3.6.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.15048.0" platform="Win32NT" cwd="D:\Work\Training\CafeApp" machine-name="ODIN" user="odind" user-domain="ODIN" culture="ru-BY" uiculture="ru-RU" os-architecture="x64" />
     <settings>
       <setting name="DisposeRunners" value="True" />
@@ -13,11 +13,12 @@
       <setting name="NumberOfTestWorkers" value="8" />
     </settings>
     <properties>
-      <property name="_PID" value="13736" />
+      <property name="_PID" value="16924" />
       <property name="_APPDOMAIN" value="domain-" />
     </properties>
-    <test-suite type="TestFixture" id="0-1000" name="OpenTabTests" fullname="OpenTabTests" classname="OpenTabTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2017-03-10 20:35:55Z" end-time="2017-03-10 20:35:55Z" duration="0.072889" total="1" passed="1" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="2">
-      <test-case id="0-1001" name="Can Open a new Tab" fullname="OpenTabTests.Can Open a new Tab" methodname="Can Open a new Tab" classname="OpenTabTests" runstate="Runnable" seed="762423913" result="Passed" start-time="2017-03-10 20:35:55Z" end-time="2017-03-10 20:35:55Z" duration="0.059698" asserts="2" />
+    <test-suite type="TestFixture" id="0-1000" name="OpenTabTests" fullname="OpenTabTests" classname="OpenTabTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2017-03-11 10:06:06Z" end-time="2017-03-11 10:06:06Z" duration="0.091145" total="2" passed="2" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="3">
+      <test-case id="0-1001" name="Can Open a new Tab" fullname="OpenTabTests.Can Open a new Tab" methodname="Can Open a new Tab" classname="OpenTabTests" runstate="Runnable" seed="1891057314" result="Passed" start-time="2017-03-11 10:06:06Z" end-time="2017-03-11 10:06:06Z" duration="0.072290" asserts="2" />
+      <test-case id="0-1002" name="Cannot open an already Opened tab" fullname="OpenTabTests.Cannot open an already Opened tab" methodname="Cannot open an already Opened tab" classname="OpenTabTests" runstate="Runnable" seed="587782238" result="Passed" start-time="2017-03-11 10:06:06Z" end-time="2017-03-11 10:06:06Z" duration="0.001972" asserts="1" />
     </test-suite>
   </test-suite>
 </test-run>
