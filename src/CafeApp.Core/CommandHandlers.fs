@@ -22,10 +22,16 @@ let handlePlaceOrder order = function
 | ClosedTab _ -> fail CanNotOrderWithClosedTab
 | _ -> fail OrderAlreadyPlaced
 
+let handleServeDrink drink tabId = function
+| PlacedOrder order ->
+  [ DrinkServed (drink,tabId) ] |> ok
+| _ -> failwith "TODO"
+
 let execute state command =
   match command with
   | OpenTab tab -> handleOpenTab tab state
   | PlaceOrder order -> handlePlaceOrder order state
+  | ServeDrink (drink, tabId) -> handleServeDrink drink tabId state
   | _ -> failwith "Todo"
 
 let evolve state command =

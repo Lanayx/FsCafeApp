@@ -54,8 +54,10 @@
     <Compile Include="AssemblyInfo.fs" />
     <Content Include="paket.references" />
     <Compile Include="CafeAppTestsDSL.fs" />
+    <Compile Include="TestData.fs" />
     <Compile Include="OpenTabTests.fs" />
     <Compile Include="PlaceOrderTests.fs" />
+    <Compile Include="ServeDrinkTests.fs" />
     <Content Include="app.config" />
   </ItemGroup>
   <ItemGroup>
