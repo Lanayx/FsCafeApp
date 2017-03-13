@@ -21,3 +21,40 @@ let ``Can Serve Drink`` () =
   |> ThenStateShouldBe (OrderInProgress expected)
   |> WithEvents [DrinkServed (coke, order.Tab.Id)]
 
+[<Test>]
+let ``Can not serve non ordered drink`` () =
+  let order = {order with Drinks = [coke]}
+  Given (PlacedOrder order)
+  |> When (ServeDrink (lemonade, order.Tab.Id))
+  |> ShouldFailWith (CanNotServeNonOrderedDrink lemonade)
+
+[<Test>]
+let ``Can not serve drink for already served order`` () =
+  Given (ServedOrder order)
+  |> When (ServeDrink (coke, order.Tab.Id))
+  |> ShouldFailWith OrderAlreadyServed
+
+[<Test>]
+let ``Can not serve drink for non placed order`` () =
+  Given (OpenedTab tab)
+  |> When (ServeDrink (coke, tab.Id))
+  |> ShouldFailWith CanNotServeForNonPlacedOrder
+
+[<Test>]
+let ``Can not serve with closed tab`` () =
+  Given (ClosedTab None)
+  |> When (ServeDrink (coke, tab.Id))
+  |> ShouldFailWith (CanNotServeWithClosedTab)
+
+[<Test>]
+let ``Can serve drinks for order containing only one drinks`` () =
+  let order = {order with Drinks = [coke]}
+  let payment = {Tab = order.Tab; Amount = drinkPrice coke}
+
+  Given (PlacedOrder order)
+  |> When (ServeDrink (coke, order.Tab.Id))
+  |> ThenStateShouldBe (ServedOrder order)
+  |> WithEvents [
+      DrinkServed (coke, order.Tab.Id)
+      OrderServed (order, payment)
+    ]
