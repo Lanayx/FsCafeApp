@@ -12,6 +12,11 @@ let (|NonOrderedDrink|_|) order drink =
   | false -> Some drink
   | true -> None
 
+let (|NonOrderedFood|_|) order food =
+  match List.contains food order.Foods with
+  | false -> Some food
+  | true -> None
+
 let (|ServeDrinkCompletesOrder|_|) order drink =
   match isServingDrinkCompletesOrder order drink with
   | true -> Some drink
@@ -45,11 +50,23 @@ let handleServeDrink drink tabId = function
 | ClosedTab _ -> CanNotServeWithClosedTab |> fail
 | _ -> failwith "Todo"
 
+let handlePrepareFood food tabId = function
+| PlacedOrder order ->
+  match food with
+  | NonOrderedFood order _ ->
+    CanNotPrepareNonOrderedFood food |> fail
+  | _ -> [FoodPrepared (food, tabId)] |> ok
+| ServedOrder _ -> OrderAlreadyServed |> fail
+| OpenedTab _ ->  CanNotPrepareForNonPlacedOrder |> fail
+| ClosedTab _ -> CanNotPrepareWithClosedTab |> fail
+| _ -> failwith "Todo"
+
 let execute state command =
   match command with
   | OpenTab tab -> handleOpenTab tab state
   | PlaceOrder order -> handlePlaceOrder order state
   | ServeDrink (drink, tabId) -> handleServeDrink drink tabId state
+  | PrepareFood (food, tabId) -> handlePrepareFood food tabId state
   | _ -> failwith "Todo"
 
 let evolve state command =
