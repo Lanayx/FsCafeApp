@@ -59,6 +59,7 @@
     <Compile Include="PlaceOrderTests.fs" />
     <Compile Include="ServeDrinkTests.fs" />
     <Compile Include="PrepareFoodTests.fs" />
+    <Compile Include="ServeFoodTests.fs" />
     <Content Include="app.config" />
   </ItemGroup>
   <ItemGroup>
