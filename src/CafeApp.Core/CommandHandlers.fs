@@ -37,9 +37,18 @@ let (|UnPreparedFood|_|) ipo food =
   | false -> Some food
   | true -> None
 
-
 let (|AlreadyServedFood|_|) ipo food =
   match List.contains food ipo.ServedFoods with
+  | true -> Some food
+  | false -> None
+
+let (|ServeDrinkCompletesIPOrder|_|) ipo drink =
+  match isServingDrinkCompletesIPOrder ipo drink with
+  | true -> Some drink
+  | false -> None
+
+let (|ServeFoodCompletesIPOrder|_|) ipo food =
+  match isServingFoodCompletesIPOrder ipo food with
   | true -> Some food
   | false -> None
 
@@ -63,8 +72,7 @@ let handleServeDrink drink tabId = function
   | NonOrderedDrink order _ ->
     CanNotServeNonOrderedDrink drink |> fail
   | ServeDrinkCompletesOrder order _ ->
-    let payment = {Tab = order.Tab; Amount = orderAmount order}
-    event :: [OrderServed (order, payment)] |> ok
+    event :: [OrderServed (order, payment order)] |> ok
   | _ -> [event] |> ok
 | ServedOrder _ -> OrderAlreadyServed |> fail
 | OpenedTab _ ->  CanNotServeForNonPlacedOrder |> fail
@@ -77,8 +85,10 @@ let handleServeDrink drink tabId = function
     CanNotServeNonOrderedDrink drink |> fail
   | AlreadyServedDrink ipo _ ->
     CanNotServeAlreadyServedDrink drink |> fail
+  | ServeDrinkCompletesIPOrder ipo _ ->
+    drinkServed :: [OrderServed (order, payment order)]
+  |> ok
   | _ -> [drinkServed] |> ok
-| _ -> failwith "Todo"
 
 let handlePrepareFood food tabId = function
 | PlacedOrder order ->
@@ -115,6 +125,15 @@ let handleServeFood food tabId = function
 | OpenedTab _ -> CanNotServeForNonPlacedOrder |> fail
 | ClosedTab _ -> CanNotServeWithClosedTab |> fail
 
+let handleCloseTab payment = function
+| ServedOrder order ->
+  let orderAmount = orderAmount order
+  if payment.Amount = orderAmount then
+    [TabClosed payment] |> ok
+  else
+    InvalidPayment (orderAmount, payment.Amount) |> fail
+| _ -> CanNotPayForNonServedOrder |> fail
+
 let execute state command =
   match command with
   | OpenTab tab -> handleOpenTab tab state
@@ -122,7 +141,7 @@ let execute state command =
   | ServeDrink (drink, tabId) -> handleServeDrink drink tabId state
   | PrepareFood (food, tabId) -> handlePrepareFood food tabId state
   | ServeFood (food, tabId) -> handleServeFood food tabId state
-  | _ -> failwith "Todo"
+  | CloseTab payment -> handleCloseTab payment state
 
 let evolve state command =
   match execute state command with

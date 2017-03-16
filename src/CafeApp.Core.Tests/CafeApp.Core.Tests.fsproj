@@ -56,6 +56,7 @@
     <Compile Include="CafeAppTestsDSL.fs" />
     <Compile Include="TestData.fs" />
     <Compile Include="OpenTabTests.fs" />
+    <Compile Include="CloseTabTests.fs" />
     <Compile Include="PlaceOrderTests.fs" />
     <Compile Include="ServeDrinkTests.fs" />
     <Compile Include="PrepareFoodTests.fs" />
