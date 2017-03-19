@@ -53,6 +53,7 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Projections.fs" />
     <Compile Include="ReadModels.fs" />
+    <Compile Include="Queries.fs" />
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
