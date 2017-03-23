@@ -10,9 +10,10 @@
     <RootNamespace>CafeApp.Persistence.InMemory</RootNamespace>
     <AssemblyName>CafeApp.Persistence.InMemory</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
+    <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Name>CafeApp.Persistence.InMemory</Name>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,34 +34,6 @@
     <WarningLevel>3</WarningLevel>
     <DocumentationFile>bin\Release\CafeApp.Persistence.InMemory.XML</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="mscorlib" />
-    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AssemblyInfo.fs" />
-    <Compile Include="Table.fs" />
-    <Compile Include="Chef.fs" />
-    <Compile Include="Cashier.fs" />
-    <Compile Include="Waiter.fs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CafeApp.Core\CafeApp.Core.fsproj">
-      <Name>CafeApp.Core</Name>
-      <Project>{8da515cf-5de9-4c88-917a-d90ea610167a}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-    <ProjectReference Include="..\CafeApp.Persistence\CafeApp.Persistence.fsproj">
-      <Name>CafeApp.Persistence</Name>
-      <Project>{5163af92-50be-4b93-becf-065409389f87}</Project>
-      <Private>True</Private>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
   </PropertyGroup>
@@ -77,6 +50,34 @@
     </Otherwise>
   </Choose>
   <Import Project="$(FSharpTargetsPath)" />
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Table.fs" />
+    <Compile Include="Chef.fs" />
+    <Compile Include="Cashier.fs" />
+    <Compile Include="Waiter.fs" />
+    <Compile Include="InMemory.fs" />
+    <None Include="paket.references" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="FSharp.Core, Version=$(TargetFSharpCoreVersion), Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <ProjectReference Include="..\CafeApp.Core\CafeApp.Core.fsproj">
+      <Name>CafeApp.Core</Name>
+      <Project>{8da515cf-5de9-4c88-917a-d90ea610167a}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\CafeApp.Persistence\CafeApp.Persistence.fsproj">
+      <Name>CafeApp.Persistence</Name>
+      <Project>{5163af92-50be-4b93-becf-065409389f87}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -84,4 +85,15 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Choose>
+    <When Condition="$(TargetFrameworkIdentifier) == '.NETFramework' And ($(TargetFrameworkVersion) == 'v4.0' Or $(TargetFrameworkVersion) == 'v4.5' Or $(TargetFrameworkVersion) == 'v4.5.1' Or $(TargetFrameworkVersion) == 'v4.5.2' Or $(TargetFrameworkVersion) == 'v4.5.3' Or $(TargetFrameworkVersion) == 'v4.6' Or $(TargetFrameworkVersion) == 'v4.6.1' Or $(TargetFrameworkVersion) == 'v4.6.2' Or $(TargetFrameworkVersion) == 'v4.6.3')">
+      <ItemGroup>
+        <Reference Include="NEventStore">
+          <HintPath>..\..\packages\NEventStore\lib\net40\NEventStore.dll</HintPath>
+          <Private>True</Private>
+          <Paket>True</Paket>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
 </Project>
