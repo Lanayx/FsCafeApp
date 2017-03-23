@@ -67,9 +67,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
-    <Reference Include="System.ValueTuple">
-      <HintPath>..\..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
-    </Reference>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\CafeApp.Core\CafeApp.Core.fsproj">
       <Name>CafeApp.Core</Name>
       <Project>{8da515cf-5de9-4c88-917a-d90ea610167a}</Project>
