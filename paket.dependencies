@@ -2,8 +2,10 @@ source https://www.nuget.org/api/v2
 nuget Chessie
 nuget FAKE
 nuget FSharp.Core
+nuget FSharp.Data
 nuget FsUnit
 nuget NEventStore
 nuget NUnit 3.6.0
 nuget NUnit.Console
 nuget NUnit.Runners
+nuget Suave
