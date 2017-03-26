@@ -7,6 +7,8 @@ open Projections
 open Queries
 open EventStore
 open NEventStore
+open Items
+
 type InMemoryEventStore () =
   static member Instance =
     Wireup.Init().UsingInMemoryPersistence().Build()
@@ -26,6 +28,8 @@ let toDoQueries = {
 
 let inMemoryQueries = {
   Table = tableQueries
+  Food = foodQueries
+  Drink = drinkQueries
   ToDo = toDoQueries
 }
 
