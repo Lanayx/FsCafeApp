@@ -9,7 +9,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>CafeApp.Web</RootNamespace>
     <AssemblyName>CafeApp.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
     <Name>CafeApp.Web</Name>
@@ -68,7 +68,7 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CafeApp.Commands.Api\CafeApp.Commands.Api.fsproj">
+    <ProjectReference Include="..\CafeApp.Commands.Api\CafeApp.Commands.Api.fsproj">
       <Name>CafeApp.Commands.Api</Name>
       <Project>{ff5f9a39-eb40-48b8-9acc-f71979586e7b}</Project>
       <Private>True</Private>
