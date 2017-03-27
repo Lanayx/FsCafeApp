@@ -1,12 +1,13 @@
 ﻿module CommandApi
 
-open System.Text
 open CommandHandlers
 open Queries
 open OpenTab
 open Chessie.ErrorHandling
 open PlaceOrder
 open ServeDrink
+open ServeFood
+open PrepareFood
 
 let handleCommandRequest queries eventStore
   = function
@@ -21,4 +22,12 @@ let handleCommandRequest queries eventStore
     queries.Drink.GetDrinkByMenuNumber
     |> serveDrinkCommander queries.Table.GetTableByTabId
     |> handleCommand eventStore (tabId, drinkMenuNumber)
+  | PrepareFoodRequest (tabId, foodMenuNumber) ->
+    queries.Food.GetFoodByMenuNumber
+    |> prepareFoodCommander queries.Table.GetTableByTabId
+    |> handleCommand eventStore (tabId, foodMenuNumber)
+  | ServeFoodRequest (tabId, foodMenuNumber) ->
+    queries.Food.GetFoodByMenuNumber
+    |> serveFoodCommander queries.Table.GetTableByTabId
+    |> handleCommand eventStore (tabId, foodMenuNumber)
   | _ -> err "Invalid command" |> fail |> async.Return

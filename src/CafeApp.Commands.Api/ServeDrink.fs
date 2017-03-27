@@ -1,14 +1,15 @@
 ﻿module ServeDrink
+
 open FSharp.Data
 open Commands
 open CommandHandlers
 
 [<Literal>]
 let ServeDrinkJson = """{
-"serveDrink" : {
-"tabId" : "2a964d85-f503-40a1-8014-2c8ee5ac4a49",
-"menuNumber" : 10
-}
+  "serveDrink" : {
+  "tabId" : "2a964d85-f503-40a1-8014-2c8ee5ac4a49",
+  "menuNumber" : 10
+  }
 }"""
 type ServeDrinkReq = JsonProvider<ServeDrinkJson>
 let (|ServeDrinkRequest|_|) payload =

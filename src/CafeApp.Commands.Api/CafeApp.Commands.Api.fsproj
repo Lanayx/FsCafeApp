@@ -62,7 +62,9 @@
     <Compile Include="CommandHandler.fs" />
     <Compile Include="OpenTab.fs" />
     <Compile Include="PlaceOrder.fs" />
+    <Compile Include="PrepareFood.fs" />
     <Compile Include="ServeDrink.fs" />
+    <Compile Include="ServeFood.fs" />
     <Compile Include="CommandApi.fs" />
     <None Include="paket.references" />
   </ItemGroup>
