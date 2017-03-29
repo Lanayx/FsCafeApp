@@ -12,6 +12,9 @@ open System.Text
 open Chessie.ErrorHandling
 open Events
 open Projections
+open JsonFormatter
+open CommandHandlers
+open Suave.RequestErrors
 
 let eventsStream = new Control.Event<Event list>()
 
@@ -20,6 +23,10 @@ let project event =
   |> Async.RunSynchronously |> ignore
 
 let projectEvents = List.iter project
+
+let toErrorJson err =
+  jobj [ "error" .= err.Message]
+  |> string |> JSON BAD_REQUEST
 
 let commandApiHandler eventStore (context : HttpContext) = async {
   let payload =
@@ -31,9 +38,9 @@ let commandApiHandler eventStore (context : HttpContext) = async {
   | Ok ((state,events), _) ->
     do! eventStore.SaveEvents state events
     eventsStream.Trigger(events)
-    return! OK (sprintf "%A" state) context
+    return! toStateJson state context
   | Bad (err) ->
-    return! BAD_REQUEST err.Head.Message context
+    return! toErrorJson err.Head context
 }
 
 let commandApi eventStore =
@@ -52,7 +59,7 @@ let main argv =
   eventsStream.Publish.Add(projectEvents)
 
   let cfg = {defaultConfig with
-              bindings = [HttpBinding.createSimple HTTP "127.0.0.1" 8083]
+              bindings = [HttpBinding.createSimple HTTP "0.0.0.0" 8083]
             }
   startWebServer cfg app
   0
