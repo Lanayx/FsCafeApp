@@ -2,7 +2,6 @@
 
 open Suave
 open Suave.Web
-open Suave.Successful
 open Suave.RequestErrors
 open Suave.Operators
 open Suave.Filters
@@ -14,7 +13,7 @@ open Events
 open Projections
 open JsonFormatter
 open CommandHandlers
-open Suave.RequestErrors
+open QueriesApi
 
 let eventsStream = new Control.Event<Event list>()
 
@@ -54,6 +53,7 @@ let main argv =
     let eventStore = inMemoryEventStore ()
     choose [
       commandApi eventStore
+      queriesApi inMemoryQueries eventStore
     ]
 
   eventsStream.Publish.Add(projectEvents)

@@ -5,6 +5,7 @@ open States
 open Suave
 open Suave.Operators
 open Suave.Successful
+open ReadModel
 
 let (.=) key (value : obj) = new JProperty(key, value)
 
@@ -93,3 +94,60 @@ let JSON webpart jsonString (context : HttpContext) = async {
 
 let toStateJson state =
   state |> stateJObj |> string |> JSON OK
+
+let statusJObj = function
+  | Open tabId ->
+    "status" .= jobj [
+      "open" .= tabId.ToString()
+    ]
+  | InService tabId ->
+    "status" .= jobj [
+      "inService" .= tabId.ToString()
+    ]
+  | Closed -> "status" .= "closed"
+ 
+let tableJObj table =
+    jobj [
+      "number" .= table.Number
+      "waiter" .= table.Waiter
+      statusJObj table.Status
+    ]
+
+let toReadModelsJson toJObj key models =
+  models
+  |> List.map toJObj |> jArray
+  |> (.=) key |> List.singleton |> jobj
+  |> string |> JSON OK
+
+let toTablesJSON = toReadModelsJson tableJObj "tables"
+
+let chefToDoJObj (todo : ChefToDo) =
+  jobj [
+    "tabId" .= todo.Tab.Id.ToString()
+    "tableNumber" .= todo.Tab.TableNumber
+    "foods" .= foodJArray todo.Foods
+  ]
+
+let toChefToDosJSON =
+  toReadModelsJson chefToDoJObj "chefToDos"
+
+let waiterToDoJObj todo =
+  jobj [
+    "tabId" .= todo.Tab.Id.ToString()
+    "tableNumber" .= todo.Tab.TableNumber
+    "foods" .= foodJArray todo.Foods
+    "drinks" .= drinkJArray todo.Drinks
+  ]
+
+let toWaiterToDosJSON =
+  toReadModelsJson waiterToDoJObj "waiterToDos"
+
+let cashierToDoJObj (payment : Payment) =
+  jobj [
+    "tabId" .= payment.Tab.Id.ToString()
+    "tableNumber" .= payment.Tab.TableNumber
+    "paymentAmount" .= payment.Amount
+  ]
+
+let toCashierToDosJSON =
+  toReadModelsJson cashierToDoJObj "cashierToDos"
