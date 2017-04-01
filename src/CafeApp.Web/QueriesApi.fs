@@ -23,4 +23,8 @@ let queriesApi queries eventStore =
         readModels queries.ToDo.GetWaiterToDos toWaiterToDosJSON
       path "/todos/cashier" >=>
         readModels queries.ToDo.GetCashierToDos toCashierToDosJSON
+      path "/foods" >=>
+        readModels queries.Food.GetFoods toFoodsJSON
+      path "/drinks" >=>
+        readModels queries.Drink.GetDrinks toDrinksJSON
     ]

@@ -151,3 +151,8 @@ let cashierToDoJObj (payment : Payment) =
 
 let toCashierToDosJSON =
   toReadModelsJson cashierToDoJObj "cashierToDos"
+
+let toFoodsJSON =
+  toReadModelsJson foodJObj "foods"
+let toDrinksJSON =
+  toReadModelsJson drinkJObj "drinks"

@@ -60,13 +60,20 @@ let getDrinksByMenuNumbers keys =
 let getFoodByMenuNumber key =
   getItem foods key |> async.Return
 
+let getFoods () =
+  foods.Values |> Seq.toList |> async.Return
+let getDrinks () =
+  drinks.Values |> Seq.toList |> async.Return
+
 let foodQueries = {
   GetFoodsByMenuNumbers = getFoodsByMenuNumbers
   GetFoodByMenuNumber = getFoodByMenuNumber
+  GetFoods = getFoods
 }
 
 let drinkQueries = {
   GetDrinksByMenuNumbers = getDrinksByMenuNumbers
   GetDrinkByMenuNumber = getDrinkByMenuNumber
+  GetDrinks = getDrinks
 }
 
