@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26228.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{F637B1A0-83DF-43AF-BB59-96F7ADC177D7}"
 	ProjectSection(SolutionItems) = preProject
@@ -21,6 +21,43 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CafeApp.Web", "src\CafeApp.Web\CafeApp.Web.fsproj", "{72B38F01-0AB5-4974-A3E3-0F7F4B7AD651}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CafeApp.Commands.Api", "src\CafeApp.Commands.Api\CafeApp.Commands.Api.fsproj", "{FF5F9A39-EB40-48B8-9ACC-F71979586E7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client", "client", "{08861697-0BDD-4182-9067-59E922154735}"
+	ProjectSection(SolutionItems) = preProject
+		client\.babelrc = client\.babelrc
+		client\favicon.ico = client\favicon.ico
+		client\index.html = client\index.html
+		client\package.json = client\package.json
+		client\webpack-server.js = client\webpack-server.js
+		client\webpack.config.js = client\webpack.config.js
+		client\webpack.production.config.js = client\webpack.production.config.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{81B6E20A-1A7C-457E-9B8B-DAD7A1B51C6B}"
+	ProjectSection(SolutionItems) = preProject
+		client\app\cashier.js = client\app\cashier.js
+		client\app\chef.js = client\app\chef.js
+		client\app\events.js = client\app\events.js
+		client\app\index.jsx = client\app\index.jsx
+		client\app\items.js = client\app\items.js
+		client\app\store.js = client\app\store.js
+		client\app\table.js = client\app\table.js
+		client\app\waiter.js = client\app\waiter.js
+		client\app\websocket.js = client\app\websocket.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{59CDA0C9-F29C-4DDA-9016-A8A1844705D0}"
+	ProjectSection(SolutionItems) = preProject
+		client\app\components\app.jsx = client\app\components\app.jsx
+		client\app\components\appNavBar.jsx = client\app\components\appNavBar.jsx
+		client\app\components\cashier.jsx = client\app\components\cashier.jsx
+		client\app\components\chef.jsx = client\app\components\chef.jsx
+		client\app\components\home.jsx = client\app\components\home.jsx
+		client\app\components\item.jsx = client\app\components\item.jsx
+		client\app\components\orders.jsx = client\app\components\orders.jsx
+		client\app\components\table.jsx = client\app\components\table.jsx
+		client\app\components\waiter.jsx = client\app\components\waiter.jsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,5 +100,7 @@ Global
 		{1567DA19-3F62-4FE7-8278-F4A3EA48A91E} = {9209BFA0-5004-4DA8-92E5-4AB982047C87}
 		{72B38F01-0AB5-4974-A3E3-0F7F4B7AD651} = {9209BFA0-5004-4DA8-92E5-4AB982047C87}
 		{FF5F9A39-EB40-48B8-9ACC-F71979586E7B} = {9209BFA0-5004-4DA8-92E5-4AB982047C87}
+		{81B6E20A-1A7C-457E-9B8B-DAD7A1B51C6B} = {08861697-0BDD-4182-9067-59E922154735}
+		{59CDA0C9-F29C-4DDA-9016-A8A1844705D0} = {81B6E20A-1A7C-457E-9B8B-DAD7A1B51C6B}
 	EndGlobalSection
 EndGlobal

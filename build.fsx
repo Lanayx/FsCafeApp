@@ -5,6 +5,9 @@ open Fake.Testing
 
 let buildDir = "./build"
 let testDir = "./tests"
+let clientDir = "./client"
+let clientAssetDir = clientDir @@ "public"
+let assetBuildDir = buildDir @@ "public"
 
 Target "Clean" (fun _ -> CleanDirs [buildDir; testDir])
 
@@ -29,9 +32,28 @@ Target "RunUnitTests" (fun _ ->
                         })
 )
 
+Target "Client" (fun _ ->
+       let npmFilePath = environVarOrDefault "NPM_FILE_PATH" defaultNpmParams.NpmFilePath
+       Npm (fun p ->
+              { p with
+                  Command = Install Standard
+                  WorkingDirectory = clientDir
+                  NpmFilePath = npmFilePath
+              })
+       Npm (fun p ->
+              { p with
+                  Command = (Run "build")
+                  WorkingDirectory = clientDir
+                  NpmFilePath = npmFilePath
+              })
+       CreateDir assetBuildDir
+       CopyRecursive clientAssetDir assetBuildDir true |> ignore
+   )
+
 "Clean"
   ==> "BuildApp"
   ==> "BuildTests"
   ==> "RunUnitTests"
+  ==> "Client"
 
-RunTargetOrDefault "RunUnitTests"
+RunTargetOrDefault "Client"
