@@ -86,8 +86,7 @@ let handleServeDrink drink tabId = function
   | AlreadyServedDrink ipo _ ->
     CanNotServeAlreadyServedDrink drink |> fail
   | ServeDrinkCompletesIPOrder ipo _ ->
-    drinkServed :: [OrderServed (order, payment order)]
-  |> ok
+    drinkServed :: [OrderServed (order, payment order)] |> ok
   | _ -> [drinkServed] |> ok
 
 let handlePrepareFood food tabId = function
@@ -119,6 +118,8 @@ let handleServeFood food tabId = function
     CanNotServeAlreadyServedFood food |> fail
   | UnPreparedFood ipo _ ->
     CanNotServeNonPreparedFood food |> fail
+  | ServeFoodCompletesIPOrder ipo _ ->
+    foodServed :: [OrderServed (order, payment order)] |> ok
   | _ -> [foodServed] |> ok
 | PlacedOrder _ -> CanNotServeNonPreparedFood food |> fail
 | ServedOrder _ -> OrderAlreadyServed |> fail
