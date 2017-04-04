@@ -1,0 +1,6 @@
+.paket/paket.exe
+paket-files
+build
+packages
+client/public
+client/node_modules
