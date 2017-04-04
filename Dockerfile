@@ -7,6 +7,8 @@ WORKDIR /app
 
 COPY . /app
 
+RUN chmod +x build.sh
+
 RUN './build.sh'
 
 EXPOSE 8083
